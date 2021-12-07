@@ -1,0 +1,34 @@
+{
+  "name": "我的扩展程序",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "从页面获取text",
+  "browser_action": {
+    "default_title": "text",
+    "default_icon": "static/images/star.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "static/images/star.png",
+    "48": "static/images/star.png",
+    "128": "static/images/star.png"
+  },
+  "permissions": [
+    "cookies",
+    "http://*/*",
+    "https://*/*",
+    "tabs",
+    "notifications",
+    "contextMenus"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["static/js/script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "scripts": ["./static/js/sample.js"]
+  }
+}

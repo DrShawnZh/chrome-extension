@@ -1,0 +1,40 @@
+{
+  "name": "proxy",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "从页面获取text",
+  "browser_action": {
+    "default_title": "text",
+    "default_icon": "static/images/star.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "static/images/star.png",
+    "48": "static/images/star.png",
+    "128": "static/images/star.png"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "cookies",
+    "http://*/*",
+    "https://*/*",
+    "tabs",
+    "notifications",
+    "contextMenus",
+    "background"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["static/js/script.js", "static/js/common/magicmirror.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "scripts": ["./static/js/sample.js"]
+  },
+  "web_accessible_resources": [
+    "target.js"
+  ]
+}
